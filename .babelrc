@@ -1,0 +1,8 @@
+{
+  "presets": ["react-native"],
+  "plugins": [[
+    "module-alias", [
+      	{ "src": "./src/styles", "expose": "cSS" },
+      ]
+   ]]
+}

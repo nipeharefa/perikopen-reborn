@@ -1,0 +1,21 @@
+ [
+	{
+		"dateString": "21/05/2017",
+		"timeStamp": 1495299600000,
+		"color": "Hijau",
+		"info": {
+			"name": "Quasimodogeniti",
+			"color": "Hijau",
+			"tata_ibadah": "Quasimodogeniti"
+		},
+		"hafalan": {
+			"ayat_string": "Pada mulanya Allah menciptakan langit dan bumi",
+			"ayat": {
+				"kitab": "Kejadian",
+				"kitab_code": "KEJ",
+				"chapter": 1,
+				"verse": 1
+			}
+		}
+	}
+]
