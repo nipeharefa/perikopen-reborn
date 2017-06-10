@@ -24,29 +24,29 @@ class InformasiMinggu extends Component {
 					<Text style={styles.columnTitikDua}>
 						:
 					</Text>
-					<Text>
+					<Text style={styles.description}>
 						{ result.info.name }
 					</Text>
 				</View>
-				<View style={[cSSGlobal.flexDirectionRow, styles.top10]}>
+				<View style={[cSSGlobal.flexDirectionRow]}>
 					<Text style={styles.columnKey}>
 						Warna
 					</Text>
 					<Text style={styles.columnTitikDua}>
 						:
 					</Text>
-					<Text>
+					<Text style={styles.description}>
 						{ result.info.color }
 					</Text>
 				</View>
-				<View style={[cSSGlobal.flexDirectionRow, styles.top10]}>
+				<View style={[cSSGlobal.flexDirectionRow]}>
 					<Text style={styles.columnKey}>
 						Tata Ibadah
 					</Text>
 					<Text style={styles.columnTitikDua}>
 						:
 					</Text>
-					<Text>
+					<Text style={styles.description}>
 						{ result.info.tata_ibadah }
 					</Text>
 				</View>
@@ -57,13 +57,16 @@ class InformasiMinggu extends Component {
 
 const styles = StyleSheet.create({
 	columnKey: {
-		width: 150
+		flex: 0.5,
+		// backgroundColor: 'red'
 	},
 	columnTitikDua: {
-		width: 20
+		flex: 0.1,
+		// backgroundColor: 'yellow'
 	},
-	containerBox: {
-		flexDirection: 'row'
+	description: {
+		flex: 0.4,
+		// backgroundColor: 'blue'
 	},
 	top10: {
 		marginTop: 10
@@ -73,8 +76,10 @@ const styles = StyleSheet.create({
 	},
 	containerInfo: {
 		marginTop: 20,
-		marginLeft: 10,
-		marginBottom: 20
+		marginBottom: 20,
+		paddingLeft: 10,
+		paddingRight: 10,
+		flex: 1
 	}
 })
 

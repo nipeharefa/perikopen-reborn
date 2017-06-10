@@ -4,58 +4,31 @@ import {
 	StyleSheet,
     View
 } from 'react-native'
-
 import cSSGlobal  from 'cSS/Global'
+import { connect } from 'react-redux'
 
-export default class SongList extends Component {
+class BahanBacaan extends Component {
 
     render() {
-        return (
+    	let perikop = this.props.today
+    	const Bacaan = perikop.bacaan.map((t, i) => {
+			return (
+				<View style={[cSSGlobal.flexDirectionRow, styles.bot10]} key={i}>
+					<Text style={cSSGlobal.columnKey}>
+						{t.kitab}
+					</Text>
+					<Text style={styles.columnTitikDua}>
+						{t.chapter}
+					</Text>
+					<Text>
+						1 - 10
+					</Text>
+				</View>
+			)
+        })        
+    	return (
         	<View style={[styles.containerBacaan]}>
-        		<View style={[cSSGlobal.flexDirectionRow, styles.bot10]}>
-					<Text style={cSSGlobal.columnKey}>
-						Keluaran
-					</Text>
-					<Text style={cSSGlobal.columnTitikDua}>
-						:
-					</Text>
-					<Text>
-						1 - 10
-					</Text>
-				</View>
-				<View style={[cSSGlobal.flexDirectionRow, styles.bot10]}>
-					<Text style={cSSGlobal.columnKey}>
-						Matius
-					</Text>
-					<Text style={cSSGlobal.columnTitikDua}>
-						:
-					</Text>
-					<Text>
-						1 - 10
-					</Text>
-				</View>
-				<View style={[cSSGlobal.flexDirectionRow, styles.bot10]}>
-					<Text style={cSSGlobal.columnKey}>
-						Mazmur
-					</Text>
-					<Text style={cSSGlobal.columnTitikDua}>
-						:
-					</Text>
-					<Text>
-						20 - 30
-					</Text>
-				</View>
-				<View style={[cSSGlobal.flexDirectionRow, styles.bot10]}>
-					<Text style={cSSGlobal.columnKey}>
-						Mazmur
-					</Text>
-					<Text style={cSSGlobal.columnTitikDua}>
-						:
-					</Text>
-					<Text>
-						20 : 22
-					</Text>
-				</View>
+        		{Bacaan}
 			</View>
         )
     }
@@ -73,6 +46,12 @@ const styles = StyleSheet.create({
 	containerBacaan: {
 		marginTop: 10,
 		paddingLeft: 20,
-		marginBottom: 20
+		marginBottom: 20,
+		flex: 1
+	},
+	columnTitikDua: {
+		width: 40
 	}
 })
+
+export default connect( state => ({ nav: state.nav, today: state.perikopen.get('today') }) )(BahanBacaan)

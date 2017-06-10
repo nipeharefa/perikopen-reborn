@@ -83,9 +83,9 @@ class Home2 extends Component {
         </View>
 
         <InformasiMinggu />
-        <BahanBacaan />
+        {/*<BahanBacaan />
         <AyatHafalan />
-        <SongList />
+        <SongList />*/}
 
       </View> 
     )	
