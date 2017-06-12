@@ -1,7 +1,7 @@
  [
 	{
-		"dateString": "10/06/2017",
-		"timeStamp": 1497114000000,
+		"dateString": "18/06/2017",
+		"timeStamp": 1497718800000,
 		"color": "Hijau",
 		"info": {
 			"name": "Quasimodogeniti",
@@ -42,6 +42,10 @@
 				"chapter": 1,
 				"verse": 2
 			}
+		},
+		"songs": {
+			"KJ": [10, 100, 99, 99, 199],
+			"BZ": [10, 1, 12, 123, 22]
 		}
 	}
 ]

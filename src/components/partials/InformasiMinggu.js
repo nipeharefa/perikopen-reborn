@@ -76,10 +76,10 @@ const styles = StyleSheet.create({
 	},
 	containerInfo: {
 		marginTop: 20,
-		marginBottom: 20,
 		paddingLeft: 10,
 		paddingRight: 10,
-		flex: 1
+		backgroundColor: 'blue',
+		flexBasis: 'auto'
 	}
 })
 

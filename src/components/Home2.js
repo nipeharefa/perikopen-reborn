@@ -7,6 +7,7 @@ import {
     Button,
     Text,
     TouchableOpacity,
+    ScrollView,
     View
 } from 'react-native';
 
@@ -62,9 +63,11 @@ class Home2 extends Component {
     }
   }
 	render() {
+    
     const today = this.props.today
+
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         
         <View style={css.namaTanggal}>
           
@@ -83,11 +86,11 @@ class Home2 extends Component {
         </View>
 
         <InformasiMinggu />
-        {/*<BahanBacaan />
+        <BahanBacaan />
         <AyatHafalan />
-        <SongList />*/}
+        <SongList />
 
-      </View> 
+      </ScrollView> 
     )	
 	}
 }

@@ -17,10 +17,10 @@ class BahanBacaan extends Component {
 					<Text style={cSSGlobal.columnKey}>
 						{t.kitab}
 					</Text>
-					<Text style={styles.columnTitikDua}>
+					<Text style={cSSGlobal.columnTitikDua}>
 						{t.chapter}
 					</Text>
-					<Text>
+					<Text style={cSSGlobal.description}>
 						1 - 10
 					</Text>
 				</View>
@@ -44,10 +44,10 @@ const styles = StyleSheet.create({
 		marginBottom: 10
 	},
 	containerBacaan: {
-		marginTop: 10,
-		paddingLeft: 20,
-		marginBottom: 20,
-		flex: 1
+		backgroundColor: 'red',
+		paddingLeft: 10,
+		paddingRight: 10,
+		marginTop: 20
 	},
 	columnTitikDua: {
 		width: 40

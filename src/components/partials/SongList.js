@@ -4,26 +4,29 @@ import {
 	StyleSheet,
     View
 } from 'react-native'
-
+import { connect } from 'react-redux'
 import cSSGlobal  from 'cSS/Global'
+import HorizontalSongList from './_HorizontalSongList'
 
-export default class SongList extends Component {
+class SongList extends Component {
 
     render() {
+    	let perikop = this.props.today
+    	const KJ = perikop.songs.KJ.map((t, i) => {
+			return (
+				<Text style={styles.song} key={i}>{ t }</Text>
+			)
+        })
+        const BZ = perikop.songs.BZ.map((t, i) => {
+			return (
+				<Text style={styles.song} key={i}>{ t }</Text>
+			)
+        })
         return (
-        	<View style={[styles.songContiner]}>
-        		<View style={[cSSGlobal.flexDirectionRow]}>
-        			<Text>
-						KJ
-					</Text>
-        		</View>
-        		<View style={[cSSGlobal.flexDirectionRow, styles.songListHorizontal]}>
-					<Text style={styles.song}>10</Text>
-					<Text style={styles.song}>100</Text>
-					<Text style={styles.song}>99</Text>
-					<Text style={styles.song}>99</Text>
-				</View>
-			</View>
+        	<View style={[styles.container]}>
+        		<HorizontalSongList listSongs={KJ} bookName="KJ" />
+        		<HorizontalSongList listSongs={BZ} bookName="BZ" />
+        	</View>
         )
     }
 
@@ -31,15 +34,18 @@ export default class SongList extends Component {
 
 
 const styles = StyleSheet.create({
-	songContiner: {
-		flexDirection: 'row',
-		marginTop: 50,
-		marginLeft: 10
+	container: {
+		backgroundColor: 'red',
+		flexDirection: 'column',
+		marginTop: 30
 	},
 	songListHorizontal: {
 		marginLeft: 20
 	},
 	song: {
-		marginRight: 10
+		marginRight: 10,
+		textAlign: 'center'
 	}
 })
+
+export default connect( state => ({ nav: state.nav, today: state.perikopen.get('today') }) )(SongList)

@@ -12,7 +12,7 @@ class AyatHafalan extends Component {
 		const hafalan = this.props.today.hafalan
 		console.log(hafalan)
 		return (
-			<View style={[cSSGlobal.flexDirectionColumn]}>
+			<View style={[cSSGlobal.flexDirectionColumn, styles.containerHafalan]}>
 				<Text style={styles.hafalan}>
 					{ hafalan.ayat_string }
 				</Text>
@@ -25,6 +25,9 @@ class AyatHafalan extends Component {
 }
 
 const styles = StyleSheet.create({
+	containerHafalan: {
+		marginTop: 10
+	},
 	hafalan: {
 		textAlign: 'center',
 		fontStyle: 'italic'

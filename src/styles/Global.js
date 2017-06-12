@@ -10,9 +10,12 @@ export default StyleSheet.create({
 		flexDirection: 'column',
 	},
 	columnKey: {
-		width: 150
+		flex: 0.5
 	},
 	columnTitikDua: {
-		width: 20
+		flex: 0.1
+	},
+	description: {
+		flex: 0.4
 	}
 })
