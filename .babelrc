@@ -3,6 +3,7 @@
   "plugins": [[
     "module-alias", [
       	{ "src": "./src/styles", "expose": "cSS" },
+      	{ "src": "./src/utils", "expose": "utils" },
       ]
    ]]
 }
