@@ -4,8 +4,7 @@
 	"private": true,
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest",
-		"postinstall": "rndebugger-open"
+		"test": "jest"
 	},
 	"dependencies": {
 		"immutable": "^3.8.1",
@@ -15,7 +14,6 @@
 		"react-native-vector-icons": "^4.1.1",
 		"react-navigation": "^1.0.0-beta.9",
 		"react-redux": "^5.0.4",
-		"realm": "^1.2.0",
 		"redux": "^3.6.0",
 		"redux-logger": "^3.0.1",
 		"redux-thunk": "^2.2.0"

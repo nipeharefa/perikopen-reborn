@@ -65,6 +65,7 @@ class Home2 extends Component {
 	render() {
     
     const today = this.props.today
+    const calendarDate = moment(today.timeStamp, 'x').toDate()
 
     return (
       <ScrollView style={styles.container}>
@@ -75,7 +76,7 @@ class Home2 extends Component {
             marginRight: 10 }]} />
           <TouchableOpacity
               onPress={this.showPicker.bind(this, 'calendar',
-                  {date: this.state.calendarDate, mode: 'calendar'})}>
+                  {date: calendarDate, mode: 'calendar'})}>
               <Text>{ today.dateString }</Text>
           </TouchableOpacity>
 
