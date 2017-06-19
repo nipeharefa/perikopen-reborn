@@ -15,6 +15,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import css from 'cSS/Perikopen'
 
+import ActionButton from 'react-native-action-button'
+
 import SongList from './partials/SongList'
 import AyatHafalan from './partials/AyatHafalan'
 import InformasiMinggu from './partials/InformasiMinggu'
@@ -51,11 +53,11 @@ class Home2 extends Component {
       var newState = {}
       const {action, year, month, day} = await DatePickerAndroid.open(options);
       if (action === DatePickerAndroid.dismissedAction) {
-        newState[stateKey + 'Text'] = 'dismissed';
+        // newState[stateKey + 'Text'] = 'dismissed';
       } else {
-        var date = new Date(year, month, day);
-        newState[stateKey + 'Text'] = date.toLocaleDateString();
-        newState[stateKey + 'Date'] = date;
+        // var date = new Date(year, month, day);
+        // newState[stateKey + 'Text'] = date.toLocaleDateString();
+        // newState[stateKey + 'Date'] = date;
       }
       this.setState(newState)
       } catch ({code, message}) {
@@ -67,22 +69,22 @@ class Home2 extends Component {
     const today = this.props.today
     const calendarDate = moment(today.timeStamp, 'x').toDate()
 
+    const customTextButton = (
+      <Icon name="calendar" size={25} color="white"></Icon>
+    );
+
+    const showPicker = this.showPicker.bind(this, 'calendar',
+                        {date: calendarDate, mode: 'calendar'})
+
     return (
-      <ScrollView style={styles.container}>
+      <View style={{flex: 1}}>
+        <ScrollView style={styles.container}>
         
         <View style={css.namaTanggal}>
-          
-          <Icon name={'chevron-left'} size={15} style={[{
-            marginRight: 10 }]} />
           <TouchableOpacity
-              onPress={this.showPicker.bind(this, 'calendar',
-                  {date: calendarDate, mode: 'calendar'})}>
+              onPress={showPicker}>
               <Text>{ today.dateString }</Text>
           </TouchableOpacity>
-
-          <Icon name={'chevron-right'} size={15} style={[{
-            marginLeft: 10,
-          }]} />
 
         </View>
 
@@ -90,17 +92,39 @@ class Home2 extends Component {
         <BahanBacaan />
         <AyatHafalan />
         <SongList />
-
-      </ScrollView> 
+        </ScrollView> 
+        <ActionButton 
+          buttonColor="rgba(231,76,60,1)" 
+          degrees={0}
+          onPress={ showPicker } icon={customTextButton}>
+          <Icon name="calendar" style={styles.actionButtonIcon} />
+        </ActionButton>
+      </View>
     )	
 	}
 }
 
 
 const styles = StyleSheet.create({
+  actionButtonIcon: {
+    fontSize: 20,
+    height: 22,
+    color: 'white',
+  },
+  bb: {
+    borderRadius: 40,
+    backgroundColor: 'red'
+  },
   container: {
     flex: 1,
     backgroundColor: 'white'
+  },
+  calendarButton: {
+    position: 'absolute',
+    bottom: 35,
+    right: 15,
+    borderColor: "#fafafa",
+    borderWidth: 0.5
   }
 })
 
