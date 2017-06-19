@@ -25,7 +25,8 @@ import BahanBacaan from './partials/BahanBacaan'
 import moment from 'moment'
 import { perikopen } from '../db/perikopen'
 import { List } from 'immutable'
-import { getPerikopenToday } from '../actions/perikopen'
+import { getPerikopenToday, setPerikopenToday } from '../actions/perikopen'
+import Search from 'utils/findPerikop'
 
 class Home2 extends Component {
   static title = 'DatePickerAndroid';
@@ -53,17 +54,23 @@ class Home2 extends Component {
       var newState = {}
       const {action, year, month, day} = await DatePickerAndroid.open(options);
       if (action === DatePickerAndroid.dismissedAction) {
-        // newState[stateKey + 'Text'] = 'dismissed';
+        return
       } else {
-        // var date = new Date(year, month, day);
-        // newState[stateKey + 'Text'] = date.toLocaleDateString();
-        // newState[stateKey + 'Date'] = date;
+        var date = new Date(year, month, day);
+        const timestampTarget = moment(date).format('x')
+        const a = Search(this.props.perikopen, timestampTarget)
+
+        console.log(a)
+        console.log(a == null)
+
+        return
       }
       this.setState(newState)
       } catch ({code, message}) {
         console.warn(`Error in example '${stateKey}': `, message);
     }
   }
+
 	render() {
     
     const today = this.props.today
@@ -130,4 +137,4 @@ const styles = StyleSheet.create({
 
 export default connect( state => ({ nav: state.nav, perikopen: state.perikopen.get('items'),
 today: state.perikopen.get('today') }), 
-  { getPerikopenToday } )(Home2)
+  { getPerikopenToday, setPerikopenToday } )(Home2)
